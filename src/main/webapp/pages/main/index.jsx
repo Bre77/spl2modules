@@ -5,8 +5,8 @@ import Link from "@splunk/react-ui/Link";
 import Message from "@splunk/react-ui/Message";
 import P from "@splunk/react-ui/Paragraph";
 import Select from "@splunk/react-ui/Select";
-import Table from "@splunk/react-ui/Table";
-import Text from "@splunk/react-ui/Text";
+import Text from "@splunk/react-ui/Table";
+import TextArea from "@splunk/react-ui/TextArea";
 import { splunkdPath } from "@splunk/splunk-utils/config";
 import { defaultFetchInit } from "@splunk/splunk-utils/fetch";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -31,6 +31,7 @@ const MutateButton = ({ mutation, label, disabled = false }) => (
 
 const Main = () => {
     const [app, setApp] = useState("search");
+    const handleApp = (e, { value }) => setApp(value);
     const [name, setName] = useState("_default");
 
     const apps = useQuery({
@@ -43,7 +44,7 @@ const Main = () => {
     });
 
     const module = useQuery({
-        queryKey: ["apikeys"],
+        queryKey: ["module", app, name],
         queryFn: () =>
             fetch(`${splunkdPath}/services/spl2/modules/apps.${app}.${name}`, defaultFetchInit).then((res) =>
                 res.ok ? res.json() : Promise.reject(res.statusCode)
@@ -51,16 +52,18 @@ const Main = () => {
     });
     return (
         <>
-            <P>Test</P>
-            <Select>
-                {apps.data.map((app) => (
-                    <Select.Option key={app} value={app}>
-                        {app}
-                    </Select.Option>
-                ))}
-            </Select>
-            <Text value={name} onChange={setName} placeholderData="_default" />
-            <JSONTree json={module.data} expandChildren />;
+            <P>Look at SPL2 Modules</P>
+            <ControlGroup label="App">
+                <Select value={app} onChange={handleApp}>
+                    {apps.data.map((a) => (
+                        <Select.Option key={a} label={a} value={a} />
+                    ))}
+                </Select>
+            </ControlGroup>
+            <ControlGroup label="Module">
+                <Text value={name} onChange={setName} placeholderData="_default" />
+            </ControlGroup>
+            <TextArea value={module.data?.definition} />
         </>
     );
 };
