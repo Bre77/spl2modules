@@ -1,0 +1,8 @@
+<nav>
+  <view name="main" default="true" />
+  <collection label="Support">
+    <a href="https://github.com/Bre77/spl2modules/issues" target="_blank">Github Issues</a>
+    <a href="slack://user?team=T047WPASC&amp;id=U6MV3Q9UH" target="_blank">Slack</a>
+    <a href="mailto:splunkbase@ba.id.au" target="_blank">Email</a>
+  </collection>
+</nav>
