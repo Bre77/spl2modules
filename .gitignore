@@ -10,5 +10,6 @@ yarn-error.log
 licenses.json
 functional-temp
 splunktional-temp
+splunkbeta.tgz
 src/main/resources/splunk/lib/*
 !src/main/resources/splunk/lib/requirements.txt
