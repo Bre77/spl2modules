@@ -1,6 +1,6 @@
 import Button from "@splunk/react-ui/Button";
-import JSON from "@splunk/react-ui/Json";
 import ControlGroup from "@splunk/react-ui/ControlGroup";
+import JSONTree from "@splunk/react-ui/JSONTree";
 import Link from "@splunk/react-ui/Link";
 import Message from "@splunk/react-ui/Message";
 import P from "@splunk/react-ui/Paragraph";
@@ -37,9 +37,7 @@ const Main = () => {
         queryKey: ["apps"],
         queryFn: () =>
             fetch(`${splunkdPath}/services/apps/local?output_mode=json`, defaultFetchInit).then((res) =>
-                res.ok
-                    ? res.json().then((data) => data.entry.map((entry) => entry.name))
-                    : Promise.reject(res.statusCode)
+                res.ok ? res.json().then((data) => data.entry.map((entry) => entry.name)) : Promise.reject(res.statusCode)
             ),
         placeholderData: [],
     });
@@ -48,9 +46,7 @@ const Main = () => {
         queryKey: ["apikeys"],
         queryFn: () =>
             fetch(`${splunkdPath}/services/spl2/modules/apps.${app}.${name}`, defaultFetchInit).then((res) =>
-                res.ok
-                    ? res.json()
-                    : Promise.reject(res.statusCode)
+                res.ok ? res.json() : Promise.reject(res.statusCode)
             ),
     });
     return (
@@ -64,8 +60,8 @@ const Main = () => {
                 ))}
             </Select>
             <Text value={name} onChange={setName} placeholderData="_default" />
+            <JSONTree json={module.data} expandChildren />;
         </>
-
     );
 };
 

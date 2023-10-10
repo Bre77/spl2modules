@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<view template="hibp:/templates/main.html" type="html">
+<view template="spl2modules:/templates/main.html" type="html">
 	<label>SPL2 Modules</label>
 </view>

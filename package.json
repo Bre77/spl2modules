@@ -1,8 +1,8 @@
 {
-    "name": "hibp",
-    "version": "1.0.6",
+    "name": "spl2modules",
+    "version": "0.0.1",
     "license": "https://cdn.splunkbase.splunk.com/static/misc/eula.html",
-    "splunkbaseid": 6996,
+    "splunkbaseid": 0,
     "scripts": {
         "build": "node bin/build.js build",
         "eslint": "eslint src --ext \".js,.jsx\"",
@@ -13,7 +13,7 @@
         "lint:ci": "yarn run eslint:ci && yarn run stylelint",
         "start": "webpack --watch",
         "stylelint": "stylelint \"src/**/*.{js,jsx}\" --config stylelint.config.js",
-        "package": "./make.sh dist/hibp.spl"
+        "package": "./make.sh dist/spl2modules.spl"
     },
     "dependencies": {
         "@splunk/react-ui": "^4.14.0",
