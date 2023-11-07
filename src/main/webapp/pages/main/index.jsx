@@ -1,16 +1,13 @@
 import FloppyDisk from "@splunk/react-icons/FloppyDisk";
 import Button from "@splunk/react-ui/Button";
 import ControlGroup from "@splunk/react-ui/ControlGroup";
-import JSONTree from "@splunk/react-ui/JSONTree";
-import Link from "@splunk/react-ui/Link";
-import Message from "@splunk/react-ui/Message";
 import P from "@splunk/react-ui/Paragraph";
 import Select from "@splunk/react-ui/Select";
 import Text from "@splunk/react-ui/Text";
 import TextArea from "@splunk/react-ui/TextArea";
 import { splunkdPath } from "@splunk/splunk-utils/config";
 import { defaultFetchInit } from "@splunk/splunk-utils/fetch";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import Page from "../../shared/page";
 
