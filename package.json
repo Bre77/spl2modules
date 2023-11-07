@@ -1,6 +1,6 @@
 {
     "name": "spl2modules",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "https://cdn.splunkbase.splunk.com/static/misc/eula.html",
     "splunkbaseid": 0,
     "scripts": {
